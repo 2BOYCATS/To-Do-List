@@ -18,7 +18,7 @@
 1. Clone โปรเจกต์และเข้าไปที่โฟลเดอร์ `client`
    ```bash
    git clone https://github.com/2boycats/To-do-list.git
-   cd To-do-list/client
+   cd To-do-list
    ```
 2. ติดตั้ง dependencies
    ```bash
