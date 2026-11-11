@@ -1,16 +1,56 @@
-# React + Vite
+# To Do List 📋
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+โปรเจกต์ To-Do List ใช้เพื่อฝึกการจัดการ state ด้วย useState การส่งข้อมูลระหว่าง component ด้วย props และการแสดงรายการด้วย .map
 
-Currently, two official plugins are available:
+## ✨ Features
+- แก้ไขชื่อรายการที่เพิ่มไปแล้วได้
+- ลบรายการที่ต้องการได้ทีละรายการ
+- ลากเพื่อสลับตำแหน่งระหว่างรายการ
+- มีเพิ่มปุ่มติ๊กทำเสร็จแล้ว
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 🛠 Tech Stack
+- React
+- Tailwind CSS
+- [Lucide React](https://lucide.dev/) (ไอคอน)
 
-## React Compiler
+## 🚀 วิธีรันโปรเจกต์
+**สิ่งที่ต้องมีก่อน:** ติดตั้ง [Node.js](https://nodejs.org/)
+1. Clone โปรเจกต์และเข้าไปที่โฟลเดอร์ `client`
+   ```bash
+   git clone https://github.com/2boycats/To-do-list.git
+   cd To-do-list/client
+   ```
+2. ติดตั้ง dependencies
+   ```bash
+   npm install
+   ```
+3. รันโปรเจกต์
+   ```bash
+   npm run dev
+   ```
+4. เปิดเบราว์เซอร์ไปที่ลิงก์ที่แสดงใน Terminal (ปกติคือ `http://localhost:5173`
+   
+## 🔄 การทำงานของระบบ
+1. เก็บรายการทั้งหมดเป็นอาร์เรย์ของออบเจกต์ไว้ใน state ที่คอมโพเนนต์แม่ แล้วส่งต่อให้คอมโพเนนต์ลูกผ่าน props เพื่อให้ทั้งสองส่วนใช้ข้อมูลชุดเดียวกัน
+2. ส่วนหัวมีฟอร์มรับชื่อรายการ เมื่อกดเพิ่มจะตรวจว่าไม่ใช่ค่าว่างและจำนวนรายการยังไม่ถึง 8 แล้วจึงสร้างออบเจกต์ใหม่ต่อท้ายอาร์เรย์ ถ้าเต็มแล้วจะแสดงข้อความเตือน
+3. ส่วนเนื้อหาวนลูปอาร์เรย์เพื่อแสดงแต่ละรายการ
+4. เมื่อกดแก้ไข รายการนั้นจะเปลี่ยนจากข้อความเป็นช่องพิมพ์ ถ้ากดยืนยันจะอัปเดตชื่อเฉพาะรายการที่ id ตรงกัน ถ้ากดยกเลิกจะกลับเป็นเหมือนเดิม
+5. เมื่อกดลบ จะกรองรายการที่ id ตรงกันออกจากอาร์เรย์
+6. เมื่อลากรายการไปวางบนอีกรายการ จะหาตำแหน่งเดิมและตำแหน่งใหม่ ตัดรายการที่ลากออกแล้วแทรกลงในตำแหน่งปลายทาง
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 📝 หมายเหตุ
+- สามารถเพิ่มรายการได้เพียง 8 รายการเท่านั้น หากเพิ่มอีกจะแสดงข้อความเตือน
+- ข้อมูลเก็บอยู่ใน state เท่านั้น เมื่อรีเฟรชหน้าเว็บรายการจะหายไป
+- ปุ่มติ๊กทำเสร็จแล้วยังเป็นเพียงหน้าตา ยังไม่ได้บันทึกสถานะลงในข้อมูล
 
-## Expanding the ESLint configuration
+## 📚 สิ่งที่ได้เรียนรู้
+- การจัดการ state ด้วย `useState` และการยกข้อมูลไปไว้ที่คอมโพเนนต์แม่เพื่อแชร์ให้คอมโพเนนต์ลูก
+- การส่งข้อมูลและฟังก์ชันระหว่างคอมโพเนนต์ด้วย props
+- การแสดงรายการด้วย `.map()`
+- การทำ drag and drop ด้วย HTML Drag and Drop API
+- การแสดงผลแบบมีเงื่อนไขเพื่อสลับโหมดแก้ไข
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🔮 แผนพัฒนาต่อ
+- เพิ่มรายการได้ไม่จำกัด
+- ทำให้ปุ่มติ๊กทำเสร็จแล้วทำงานจริง และขีดฆ่าข้อความเมื่อเสร็จ
+- เก็บรายการด้วย `localStorage` เพื่อไม่ให้หายเมื่อรีเฟรช
